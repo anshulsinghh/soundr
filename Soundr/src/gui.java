@@ -1,14 +1,11 @@
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToolBar;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -23,15 +20,12 @@ public class gui extends Application {
     public TitleBarButtons() {
 
       Button minButton = new Button("\uE949");
-      Button maxButton = new Button("\uE739");
       Button closeButton = new Button("\uE106");
 
       minButton.setId("min");
-      maxButton.setId("max");
       closeButton.setId("close");
 
       this.getChildren().add(minButton);
-      this.getChildren().add(maxButton);
       this.getChildren().add(closeButton);
       this.setPadding(new Insets(0, 0, 13, 0));
       minButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -39,15 +33,6 @@ public class gui extends Application {
         @Override
         public void handle(ActionEvent a) {
           setIconified(true);
-        }
-
-      });
-
-      maxButton.setOnAction(new EventHandler<ActionEvent>() {
-
-        @Override
-        public void handle(ActionEvent a) {
-          Platform.exit();
         }
 
       });
@@ -63,10 +48,10 @@ public class gui extends Application {
 
     }
   }
-  
+
   double offsetX = 0;
   double offsetY = 0;
-  
+
   private Stage stage;
 
   public static void main(String[] args) {
@@ -75,18 +60,22 @@ public class gui extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    
+
     this.stage = stage;
-    StackPane root = new StackPane();
+    // StackPane root = new StackPane();
+    BorderPane root = new BorderPane();
     Scene scene = new Scene(root);
     scene.getStylesheets().add("/css/style.css");
     this.stage.initStyle(StageStyle.TRANSPARENT);
 
-    BorderPane pane = new BorderPane();
+    Slider slider = ThresholdSlider.getThresholdSlider();
+    BorderPane sliderPane = new BorderPane();
+    sliderPane.setTop(slider);
 
+    BorderPane titlePane = new BorderPane();
     ToolBar titleBar = new ToolBar();
     titleBar.getItems().add(new TitleBarButtons());
-
+    titlePane.setTop(titleBar);
     titleBar.setOnMousePressed(new EventHandler<MouseEvent>() {
 
       @Override
@@ -96,7 +85,7 @@ public class gui extends Application {
       }
 
     });
-    
+
     titleBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
 
       @Override
@@ -107,8 +96,8 @@ public class gui extends Application {
 
     });
 
-    pane.setTop(titleBar);
-    root.getChildren().add(pane);
+    root.setTop(titlePane);
+    root.setBottom(sliderPane);
     this.stage.setScene(scene);
     this.stage.show();
   }

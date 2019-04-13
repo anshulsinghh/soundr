@@ -1,14 +1,15 @@
 @font-face {
     src: url("/css/segoe-mdl2-assets.ttf");
-}
+} 
 .root {
-    -fx-background-image: url("/image/background.jpg");	
-    -fx-min-width: 1190px;
-    -fx-min-height: 830px;
-}
-
-.button {
-    -fx-font-strech: expanded;
+ //   -fx-background-image: url("/image/background.jpg"); 
+    -fx-background-color: rgba(33,33,33,1);
+    -fx-min-width: 600px;  
+    -fx-min-height: 400px;   
+} 
+ 
+.button { 
+    -fx-font-strech: expanded;  
     -fx-border-color: transparent;
     -fx-border-width: 0;
     -fx-background-radius: 0;
@@ -39,16 +40,6 @@
     -fx-content-display: RIGHT;
 } 
 
-#max:hover  {
-    -fx-background-color: rgba(211, 211, 211, .2);
-    //-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
-    -fx-background-insets: -10 0 -5 0, 1, 1, 2;
-    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; 
-    -fx-alignment: CENTER;
-    -fx-content-display: RIGHT;
-} 
-
-
 #close:pressed {
     -fx-background-color: #c10000;
     -fx-text-fill: white;
@@ -59,20 +50,32 @@
     -fx-text-fill: white;
 } 
 
-#max:pressed {
-    -fx-background-color: rgba(211, 211, 211, .35);
-    -fx-text-fill: white;
-} 
-
 HBox {
     -fx-background-color: transparent;
-    -fx-padding: 1035;
+    -fx-padding: 495;
 }
 
 ToolBar {
-    -fx-pref-height: 43;
+    -fx-pref-height: 43; 
     -fx-max-height:  43;
     -fx-min-height:  43;
     -fx-min-width:   43;
     -fx-background-color: rgba(0, 0, 0, 0.2);
 }
+
+
+
+.slider {
+  -fx-padding: 0 150 30 150;
+} 
+.slider .track {
+  -fx-background-color: red;
+  -fx-tick-label-fill: white;
+  -fx-background-insets: 0;
+}
+
+.slider .thumb {
+  -fx-background-image: url("/image/slider-thumb.png"); 
+  -fx-padding: 10;
+  -fx-background-color: transparent;
+} 
