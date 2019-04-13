@@ -18,7 +18,7 @@ public class gui extends Application {
   class TitleBarButtons extends HBox {
 
     public TitleBarButtons() {
-
+ 
       Button minButton = new Button("\uE949");
       Button closeButton = new Button("\uE106");
 

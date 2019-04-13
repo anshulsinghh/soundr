@@ -17,7 +17,7 @@ public class ThresholdSlider {
           Number newValue) {
         System.out.println(slider.getValue());
       }
-    });
+    }); 
 
     return slider;
   }
