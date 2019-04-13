@@ -1,9 +1,10 @@
 @font-face {
     src: url("/css/segoe-mdl2-assets.ttf");
 } 
-.root {  
+.root {
+ //   -fx-background-image: url("/image/background.jpg"); 
     -fx-background-color: rgba(33,33,33,1);
-    -fx-min-width: 600px;    
+    -fx-min-width: 600px;  
     -fx-min-height: 400px;   
 } 
  
@@ -19,12 +20,6 @@
     -fx-font-family:"Segoe MDL2 Assets";
     -fx-font-size: .85em;
     -fx-text-fill: #dbdbdb;
-}
-
-#title-text {
-    -fx-font-family:"Times New Roman";
-    -fx-font-size: 2em;
-    -fx-fill: white; 
 }
 
 #close:hover  {
@@ -68,36 +63,19 @@ ToolBar {
     -fx-background-color: rgba(0, 0, 0, 0.2);
 }
 
+
+
 .slider {
   -fx-padding: 0 150 30 150;
-  -fx-background-color: transparent;
 } 
 .slider .track {
-  -fx-background-color: transparent;
+  -fx-background-color: red;
   -fx-tick-label-fill: white;
   -fx-background-insets: 0;
 }
 
 .slider .thumb {
-  //-fx-background-image: url("/image/slider-thumb.png"); 
+  -fx-background-image: url("/image/slider-thumb.png"); 
   -fx-padding: 10;
-  -fx-background-color: #c40b0b;
+  -fx-background-color: transparent;
 } 
-
-ProgressBar {   
-    -fx-max-height:  10;
-    -fx-min-height:  10;
-    -fx-min-width:   285;
-    -fx-background-color: transparent;
-}
-
-ProgressBar .track {   
-    -fx-control-inner-background: transparent;
-    -fx-background-color: transparent;
-}
-
-ProgressBar .bar {
-    -fx-padding: 0px; 
-    -fx-background-insets: 0; 
-    -fx-background-color: #FF0000;
-}
